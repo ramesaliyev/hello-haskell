@@ -1,0 +1,3 @@
+-- /= means not equal in haskell
+-- => 5 /= 4
+-- ==> True
