@@ -1,3 +1,8 @@
+-- # http://learnyouahaskell.com/starting-out
+
+-- LOAD THIS FILE WITH ":l conclusion" within repl (ghci)
+-- and reload with ":r"
+
 -- create list of triple tupple which contains triangle sides for triangles where;
 -- + triangle is a right triangle (a^2 + b^2 == c^2)
 -- + side is smaller or equal to 10 (c <- [1..10])

@@ -1,4 +1,4 @@
--- # http://learnyouahaskell.com/starting-out
+-- # http://learnyouahaskell.com/starting-out#babys-first-functions
 
 -- LOAD THIS FILE WITH ":l functions" within repl (ghci)
 -- and reload with ":r"

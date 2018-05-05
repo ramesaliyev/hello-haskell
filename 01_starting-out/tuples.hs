@@ -1,3 +1,8 @@
+-- # http://learnyouahaskell.com/starting-out#tuples
+
+-- LOAD THIS FILE WITH ":l tuples" within repl (ghci)
+-- and reload with ":r"
+
 -- Tuples are like lists, they are a way to store several values into a single value.
 
 -- Tuples are used when you know exactly how many values you want to combine and its
@@ -35,7 +40,7 @@ listTupleInList = [([1], [2]), ([3], [4])]
 -- > fst (...) (returns first component of pair)
 -- > snd (...) (returns second component of pair)
 
--- some tuple functions
+-- Some Tuple Functions
 
 -- > zip [...] [...] (takes two lists and zips them together into one list by joining the matching elements into pairs.)
 -- => zip [1 .. 5] ["one", "two", "three", "four", "five"]

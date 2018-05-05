@@ -1,4 +1,6 @@
--- # http://learnyouahaskell.com/starting-out
+-- # http://learnyouahaskell.com/starting-out#an-intro-to-lists
+-- # http://learnyouahaskell.com/starting-out#texas-ranges
+-- # http://learnyouahaskell.com/starting-out#im-a-list-comprehension
 
 -- LOAD THIS FILE WITH ":l lists" within repl (ghci)
 -- and reload with ":r"
@@ -54,7 +56,7 @@ isSumOfListBigger a b = a > b
 isListEmpty list = areListsEqual list []
 -- Use null instead of this (list == [])
 
--- some lists functions
+-- Some Lists Functions
 -- > head [...] (returns first element)
 -- > last [...] (returns last element)
 -- > tail [...] (returns everything except first element)
