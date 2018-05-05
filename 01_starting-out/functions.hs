@@ -11,7 +11,7 @@ doubleMe x = x + x
 
 -- You can call a function like this; (ignore declaration)
 -- Those are function calls or "Function application" in haskell.
--- (calling a function by putting a space after it and then typing out the parameters) 
+-- (calling a function by putting a space after it and then typing out the parameters)
 callSucc num = succ num
 -- => callSucc 5
 
@@ -24,7 +24,7 @@ callMax x y = x `max` y
 -- Common Haskel (Or FP) Pattern.
 -- Make basic functions that are obviously correct and
 -- then combining them into more complex functions
-doubleUs x y = doubleMe x + doubleMe y 
+doubleUs x y = doubleMe x + doubleMe y
 -- => doubleUs 3 5
 
 -- Functions in Haskell don't have to be in any particular order,
@@ -43,11 +43,11 @@ doubleIfSmallThan100 x = if x >= 100 then x else x * 2
 -- ' (apostrophe) is a valid character in functions (function names),
 -- we can make a function like (doubleSmallNumber' ...).
 -- We usually use ' to either denote a strict version of a function (one that isn't lazy)
--- or a slightly modified version of a function or a variable. 
+-- or a slightly modified version of a function or a variable.
 doubleIfSmallThan100' x = (if x >= 100 then x else x * 2) + 1
 
 betterDoubleIfSmallThan100' x = succ (if x >= 100 then x else doubleMe x)
 
 -- When a function doesn't take any parameters,
--- we usually say it's a definition (or a name). 
+-- we usually say it's a definition (or a name).
 conanO'Brien = "It's a-me, Conan O'Brien!"

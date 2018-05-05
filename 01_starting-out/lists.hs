@@ -46,10 +46,10 @@ mList = [[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]]
 -- When using <, <=, > and >= to compare lists, they are compared in lexicographical order.
 -- First the heads are compared. If they are equal then the second elements are compared, etc.
 areListsEqual a b = a == b
--- => areListsEqual (getFromList mList 2) (getFromList mList 3) 
+-- => areListsEqual (getFromList mList 2) (getFromList mList 3)
 -- => areListsEqual (getFromList mList 3) (getFromList mList 3)
-isSumOfListBigger a b = a > b 
--- => isSumOfListBigger (getFromList mList 2) (getFromList mList 3) 
+isSumOfListBigger a b = a > b
+-- => isSumOfListBigger (getFromList mList 2) (getFromList mList 3)
 -- => isSumOfListBigger (getFromList mList 3) (getFromList mList 2)
 isListEmpty list = areListsEqual list []
 -- Use null instead of this (list == [])
@@ -109,9 +109,9 @@ first24MultiplesOf13' = take 24 [13,26..]
 
 -- > repeat x (takes an ELEMENT and produces an infinite list from repeating it.)
 -- => take 10 (repeat 5)
--- ==> [5,5,5,5,5,5,5,5,5,5]  
+-- ==> [5,5,5,5,5,5,5,5,5,5]
 -- Although it's simpler to just use the replicate function if you want some number of the same element in a list.
--- => replicate 3 10 
+-- => replicate 3 10
 -- ==> [10, 10, 10]
 
 -- List Comprehensions
@@ -145,13 +145,13 @@ compTwoLists = [ x*y | x <- [2,5,10], y <- [8,10,11]]
 compTwoLists' = [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]
 
 -- Example comprehension that combines a list of adjectives and a list of nouns.
-nouns = ["hobo","frog","pope"]  
-adjectives = ["lazy","grouchy","scheming"]  
-nounsNAdjectives = [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]  
+nouns = ["hobo","frog","pope"]
+adjectives = ["lazy","grouchy","scheming"]
+nounsNAdjectives = [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]
 
 -- Our own version of length.
 length' list = sum [1 | _ <- list]
--- _ means that we don't care what we'll draw from the list   
+-- _ means that we don't care what we'll draw from the list
 
 -- Because strings are lists, we can use list comprehensions to process and produce strings.
 removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
