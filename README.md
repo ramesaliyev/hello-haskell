@@ -7,7 +7,6 @@
    - [lists](/01_starting-out/lists.hs)
    - [tuples](/01_starting-out/tuples.hs)
    - [conclusion](/01_starting-out/conclusion.hs)
-
 2. Types and Typeclasses ([Book Page](http://learnyouahaskell.com/types-and-typeclasses))
    - [types](/02_types-and-typeclasses/types.hs)
    

@@ -138,7 +138,7 @@ filterSomeNumbers = [ x | x <- [10..20], x /= 13, x /= 15, x /= 19]
 
 -- We can also draw from several lists.
 -- When drawing from several lists, comprehensions produce all combinations of the given lists
--- and then join them by the output function we supply.
+-- (by lazy cartesian multiplying way) and then join them by the output function we supply.
 -- A list produced by a comprehension that draws from two lists of length 4 will have a length of 16,
 -- provided we don't filter them. If we have two lists, [2,5,10] and [8,10,11] and we want to get the
 -- products of all the possible combinations between numbers in those lists, here's what we'd do.
