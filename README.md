@@ -17,4 +17,7 @@
    - [typeclasses 101](/03_types-and-typeclasses/typeclasses-101.hs)
 4. Syntax in Functions ([Book Page](http://learnyouahaskell.com/syntax-in-functions))
    - [pattern matching](/04_syntax-in-functions/pattern-matching.hs)
+   - [guards](/04_syntax-in-functions/guards.hs)
+   - [where](/04_syntax-in-functions/where.hs)
+   - [let](/04_syntax-in-functions/let.hs)
    - ...

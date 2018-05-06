@@ -97,6 +97,3 @@ capital "" = "Empty string, whoops!"
 capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
 
 -- You can't use ++ in pattern matches.
-
-
-

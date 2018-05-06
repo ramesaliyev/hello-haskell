@@ -19,6 +19,10 @@ callSucc num = succ num
 callMax x y = x `max` y
 -- => callMax 3 5
 
+-- Not only can we call functions as infix with backticks,
+-- we can also define them using backticks.
+x `callMin` y = x `min` y
+
 -- Examples.
 
 -- Common Haskel (Or FP) Pattern.
