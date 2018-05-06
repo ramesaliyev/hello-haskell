@@ -26,8 +26,8 @@ woot = ['w','o'] ++ ['o','t']
 -- So using cons operator is better which useful for
 -- putting something at the beginning of a list.
 -- : function takes a element and a list.
-smallCat = 'A':" SMALL CAT"
-someNumbers = 5:[1,2,3,4]
+smallCat = 'A' : " SMALL CAT"
+someNumbers = 5 : [1,2,3,4]
 
 -- ++ function takes two lists.
 -- : function takes a element and a list.
@@ -61,7 +61,7 @@ isListEmpty list = areListsEqual list []
 -- > last [...] (returns last element)
 -- > tail [...] (returns everything except first element)
 -- > init [...] (returns everything except last element)
--- > length [...] (returns length of list)
+-- > length [...] (returns length of list as Integral, mostly we convert it to Num with fromIntegral function)
 -- > null [...] (returns True if list is empty, otherwise False) (Use null instead of list==[])
 -- > reverse [...] (returns reversed list)
 -- > take n [...] (returns a list which contains first n element of the list)
@@ -161,4 +161,5 @@ removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 -- Nested list comprehensions are also possible if you're operating on lists that contain lists.
 -- Let's remove all odd numbers without flattening the list.
 multiNumberList = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9], [1,2,4,2,1,6,3,1,3,2,3,6]]
-multiNumberList' = [ [ x | x <- xs, even x ] | xs <- xxs]
+removeOddNumbersFromMultiDList xxs = [ [ x | x <- xs, even x ] | xs <- xxs]
+-- => removeOddNumbersFromMultiDList multiNumberList

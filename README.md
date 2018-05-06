@@ -13,4 +13,5 @@
    - [conclusion](/02_starting-out/conclusion.hs)
 3. Types and Typeclasses ([Book Page](http://learnyouahaskell.com/types-and-typeclasses))
    - [types](/03_types-and-typeclasses/types.hs)
-   - ...
+   - [type variables](/03_types-and-typeclasses/type-variables.hs)
+   - [typeclasses](/03_types-and-typeclasses/typeclasses.hs)

@@ -9,7 +9,10 @@
 -- You can use GHCI to examine the types of an expressions.
 -- You can also check type of functions with :t because Functions are expressions too.
 -- You can also write a function without type and then check which type it gain by compiler with :t
-
+-- for example;
+-- => sumTwo x y = x + y
+-- => :t sumTwo
+-- ==> sumTwo :: Num a => a -> a -> a
 
 -- Explicit types are always denoted with the first letter in capital case. Like "Char".
 
