@@ -149,6 +149,20 @@ compTwoLists = [ x*y | x <- [2,5,10], y <- [8,10,11]]
 -- If we wanted all possible products that are more than 50?
 compTwoLists' = [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]
 
+-- NOT SURE YET BUT:
+-- If I'm getting this right;
+-- Actually there is no thing binding parts or predicate parts.
+-- Simply if a expression returns True / False it is a predicate.
+-- Otherwise it is binding or declaration etc.
+-- This is more clear if you take a look to
+-- examples about using let inside of comprehensions. (04/let)
+-- Every definition is available for later parts.
+-- And every part is running one-by-one with lazy evaluation.
+-- And if there is any False our left-hand function wont called.
+-- So for example this will be resulted to empty list;
+-- => [ x | False, x <- [1] ]
+-- ==> []
+
 -- Example comprehension that combines a list of adjectives and a list of nouns.
 nouns = ["hobo","frog","pope"]
 adjectives = ["lazy","grouchy","scheming"]

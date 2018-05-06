@@ -39,10 +39,12 @@ doubleUs x y = doubleMe x + doubleMe y
 doubleIfSmallThan100 x = if x >= 100 then x else x * 2
 
 -- In Haskell every expression and function must return something.
--- So you cant ommit else. Else part is mandatory in Haskell.
+-- So you cant ommit else part. Else part is mandatory in Haskell.
 
 -- Another thing about the if statement in Haskell is that it is an expression.
 -- An expression is basically a piece of code that returns a value.
+-- And therefore it can be used anywhere where a value is expected.
+-- => 4 * (if 10 > 5 then 10 else 0) + 2
 
 -- ' (apostrophe) is a valid character in functions (function names),
 -- we can make a function like (doubleSmallNumber' ...).
