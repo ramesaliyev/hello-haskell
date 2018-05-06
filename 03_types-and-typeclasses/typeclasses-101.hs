@@ -1,6 +1,6 @@
 -- # http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
 
--- LOAD THIS FILE WITH ":l typeclasses" within repl (ghci)
+-- LOAD THIS FILE WITH ":l typeclasses-101" within repl (ghci)
 -- and reload with ":r"
 
 -- Typeclasses are like Interfaces that defines some behavior.

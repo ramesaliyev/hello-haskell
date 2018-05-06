@@ -14,4 +14,7 @@
 3. Types and Typeclasses ([Book Page](http://learnyouahaskell.com/types-and-typeclasses))
    - [types](/03_types-and-typeclasses/types.hs)
    - [type variables](/03_types-and-typeclasses/type-variables.hs)
-   - [typeclasses](/03_types-and-typeclasses/typeclasses.hs)
+   - [typeclasses 101](/03_types-and-typeclasses/typeclasses-101.hs)
+4. Syntax in Functions ([Book Page](http://learnyouahaskell.com/syntax-in-functions))
+   - [pattern matching](/04_syntax-in-functions/pattern-matching.hs)
+   - ...

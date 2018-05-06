@@ -29,6 +29,9 @@ woot = ['w','o'] ++ ['o','t']
 smallCat = 'A' : " SMALL CAT"
 someNumbers = 5 : [1,2,3,4]
 
+-- BTW
+-- [1,2,3] is just syntactic sugar for 1:2:3:[]
+
 -- ++ function takes two lists.
 -- : function takes a element and a list.
 -- [1,2,3] is actually just syntactic sugar for 1:2:3:[].
