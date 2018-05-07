@@ -32,6 +32,10 @@ removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 sumTwo :: Int -> Int -> Int -- last one is return type
 sumTwo x y = x + y
 
+-- Takes tuple of two int and return first
+getFirstVector :: (Int, Int) -> Int
+getFirstVector tuple = fst tuple
+
 -- Some Types
 -- > Int (Bounded integer. Between -2147483648 and 2147483647.)
 -- > Integer (Not bounded integer. It can represent really big numbers.)
