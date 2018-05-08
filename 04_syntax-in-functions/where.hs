@@ -5,7 +5,7 @@
 
 -- Where
 
--- Above we repeated ourselves three times when calculating BMI.
+-- Above (in guards.hs) we repeated ourselves three times when calculating BMI.
 -- It would be ideal if we could calculate it once,
 -- bind it to a name and then use that name instead of the expression.
 
@@ -64,3 +64,11 @@ calcBmis xs = [bmi w h | (w, h) <- xs]
 doublePlusOne x = plusOne x
   where plusOne x = double x + 1
           where double x = x * 2
+
+-- You can use pattern matching in where;
+
+describeList' :: [a] -> String
+describeList' xs = "The list is " ++ what xs
+    where what [] = "empty."
+          what [x] = "a singleton list."
+          what xs = "a longer list."

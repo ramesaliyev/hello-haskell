@@ -20,4 +20,4 @@
    - [guards](/04_syntax-in-functions/guards.hs)
    - [where](/04_syntax-in-functions/where.hs)
    - [let](/04_syntax-in-functions/let.hs)
-   - ...
+   - [case](/04_syntax-in-functions/case.hs)
