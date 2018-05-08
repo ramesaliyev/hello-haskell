@@ -4,3 +4,5 @@
 - [Sed Implementation in Haskell](https://www.youtube.com/user/connermcd/playlists)
 - [Adventures in Haskell](https://www.youtube.com/watch?v=9AllRc64pVE&list=PL_xuff3BkASMOzBr0hKVKLuSnU4UIinKx)
 - [Haskell Programming from First Principles](http://haskellbook.com/)
+- [Haskell the Hard Way](http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/)
+- [Real World Haskell](http://book.realworldhaskell.org/read/)
