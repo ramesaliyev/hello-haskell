@@ -86,6 +86,7 @@
 -- => :t (*)
 -- ==> (*) :: (Num a) => a -> a -> a
 -- To join Num, a type must already be friends with Show and Eq.
+-- Num is not a subclass of Ord.
 
 -- > Integral
 -- Integral is also a numeric typeclass.
