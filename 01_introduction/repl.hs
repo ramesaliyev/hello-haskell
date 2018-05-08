@@ -5,3 +5,8 @@
 -- provided myfunctions.hs is in the same folder from which ghci was invoked.
 -- If you change the .hs script, just run :l myfunctions again or do :r,
 -- which is equivalent because it reloads the current script.
+
+-- some settings
+
+-- => :set +s
+-- see the execution time of anything you run, along with memory usage. 
