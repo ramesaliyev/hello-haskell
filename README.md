@@ -25,3 +25,6 @@
    - [basics](/05_recursion/basics.hs)
    - [quicksort](/05_recursion/quicksort.hs)
    - [fibonacci](/05_recursion/fibonacci.hs)
+6. Higher Order Functions ([Book Page](http://learnyouahaskell.com/higher-order-functions))
+   - [curried](/06_higher-order-functions/curried.hs)
+   - ...
