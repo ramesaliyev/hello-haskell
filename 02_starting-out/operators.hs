@@ -3,10 +3,6 @@
 -- LOAD THIS FILE WITH ":l operators" within repl (ghci)
 -- and reload with ":r"
 
--- /= means not equal in haskell
--- => 5 /= 4
--- ==> True
-
 -- Pretty much all operators are functions in Haskell.
 -- You can use them infix mode by default.
 -- If a function is comprised only of special characters, it's considered an infix function by default.
@@ -16,3 +12,8 @@
 sumTwo a b = (+) a b
 isEqual a b = (==) a b
 
+isNotEqual a b = not (isEqual a b)
+
+isNotEqual' a b = a /= b
+
+isNotEqual'2 a b = (/=) a b
