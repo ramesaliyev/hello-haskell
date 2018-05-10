@@ -1,5 +1,5 @@
-**These are my personal notes about haskell which i wrote while**  
-**learning Haskell from [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/) book.**
+**These are notes and quotes i take about Haskell while**  
+**reading the [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/) book.**
 
 1. Introduction ([Book Page](http://learnyouahaskell.com/introduction))
    - [install](/01_introduction/install.hs)
