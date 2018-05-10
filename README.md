@@ -27,4 +27,5 @@
    - [fibonacci](/05_recursion/fibonacci.hs)
 6. Higher Order Functions ([Book Page](http://learnyouahaskell.com/higher-order-functions))
    - [curried](/06_higher-order-functions/curried.hs)
+   - [higher-orderism](/06_higher-order-functions/higher-orderism.hs)
    - ...
