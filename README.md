@@ -30,6 +30,6 @@
    - [higher-orderism](/06_higher-order-functions/higher-orderism.hs)
    - [map](/06_higher-order-functions/map.hs)
    - [filter](/06_higher-order-functions/filter.hs)
-   - [takeWhile](/06_higher-order-functions/takeWhile.hs)
+   - [takeWhile](/06_higher-order-functions/takewhile.hs)
    - [collatz sequences](/06_higher-order-functions/collatz-sequences.hs)
    - ...
