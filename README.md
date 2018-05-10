@@ -28,4 +28,8 @@
 6. Higher Order Functions ([Book Page](http://learnyouahaskell.com/higher-order-functions))
    - [curried](/06_higher-order-functions/curried.hs)
    - [higher-orderism](/06_higher-order-functions/higher-orderism.hs)
+   - [map](/06_higher-order-functions/map.hs)
+   - [filter](/06_higher-order-functions/filter.hs)
+   - [takeWhile](/06_higher-order-functions/takeWhile.hs)
+   - [collatz sequences](/06_higher-order-functions/collatz-sequences.hs)
    - ...

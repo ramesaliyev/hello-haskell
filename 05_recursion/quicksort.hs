@@ -21,3 +21,12 @@ quicksort (x:xs) =
 -- we have a sorted list! We sort the two lists using the same function.
 -- Eventually, we'll break it up so much that we reach empty lists and an
 -- empty list is already sorted in a way, by virtue of being empty.
+
+-- implementing quicksort with filter
+
+quicksort' :: (Ord a) => [a] -> [a]    
+quicksort' [] = []    
+quicksort' (x:xs) =     
+    let smallerSorted = quicksort' (filter (<=x) xs)  
+        biggerSorted = quicksort' (filter (>x) xs)   
+    in  smallerSorted ++ [x] ++ biggerSorted
