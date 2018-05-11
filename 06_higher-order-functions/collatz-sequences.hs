@@ -19,10 +19,10 @@
 
 -- First off, we'll write a function that produces a chain:
 
-chain :: (Integral a) => a -> [a]  
-chain 1 = [1]  
-chain n  
-    | even n =  n:chain (n `div` 2)  
+chain :: (Integral a) => a -> [a]
+chain 1 = [1]
+chain n
+    | even n =  n:chain (n `div` 2)
     | odd n  =  n:chain (n*3 + 1)
 
 -- => chain 10
@@ -30,6 +30,11 @@ chain n
 
 -- And now, the function that tells us the answer to our question:
 
-numLongChains :: Int  
-numLongChains = length (filter isLong (map chain [1..100]))  
+numLongChains :: Int
+numLongChains = length (filter isLong (map chain [1..100]))
     where isLong xs = length xs > 15
+
+-- We can also implement this with lambdas.
+
+numLongChains' :: Int
+numLongChains' = length (filter (\xs -> length xs > 15) (map chain [1..100]))
