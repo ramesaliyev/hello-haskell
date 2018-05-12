@@ -33,4 +33,6 @@
    - [takeWhile](/06_higher-order-functions/takewhile.hs)
    - [collatz sequences](/06_higher-order-functions/collatz-sequences.hs)
    - [lambdas](/06_higher-order-functions/lambdas.hs)
+   - [fold](/06_higher-order-functions/fold.hs)
+   - [scan](/06_higher-order-functions/scan.hs)
    - ...

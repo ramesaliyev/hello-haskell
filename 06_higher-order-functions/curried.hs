@@ -28,7 +28,7 @@ theMax' = (max 4) 5
 
 -- Let's examine the type of max.
 -- max :: (Ord a) => a -> a -> a
--- Which can also be written as 
+-- Which can also be written as
 -- max :: (Ord a) => a -> (a -> a)
 
 -- That could be read as: max takes an a and returns (that's the ->) a function
@@ -41,7 +41,7 @@ theMax' = (max 4) 5
 -- This is a neat way to create functions on the fly so we can pass
 -- them to another function or to seed them with some data.
 
-multThree :: (Num a) => a -> a -> a -> a  
+multThree :: (Num a) => a -> a -> a -> a
 multThree x y z = x * y * z
 
 multTwoWithNine = multThree 9
@@ -51,28 +51,28 @@ multWithEighteen = multTwoWithNine 2
 -- => multWithEighteen 10
 
 -- What if we wanted to create a function that takes a number and compares it to 100?
-compareWithHundred :: (Num a, Ord a) => a -> Ordering  
+compareWithHundred :: (Num a, Ord a) => a -> Ordering
 compareWithHundred x = compare 100 x
 -- But compare 100 already returns a function that takes a number and compares it with 100.
 -- So..
-compareWithHundred' :: (Num a, Ord a) => a -> Ordering  
+compareWithHundred' :: (Num a, Ord a) => a -> Ordering
 compareWithHundred' = compare 100
 
 -- Infix functions can also be partially applied by using sections.
 -- To section an infix function, simply surround it with parentheses
 -- and only supply a parameter on one side. That creates a function
--- that takes one parameter and then applies it to the side that's missing an operand. 
-divideByTen :: (Floating a) => a -> a  
+-- that takes one parameter and then applies it to the side that's missing an operand.
+divideByTen :: (Floating a) => a -> a
 divideByTen = (/10)
 -- => divideByTen 200
 -- ==> 20.0
-divideThousandBy :: (Floating a) => a -> a  
+divideThousandBy :: (Floating a) => a -> a
 divideThousandBy = (1000/)
 -- => divideThousandBy 25
 -- ==> 40
 
 -- A function that checks if a character supplied to it is an uppercase letter:
-isUpperAlphanum :: Char -> Bool  
+isUpperAlphanum :: Char -> Bool
 isUpperAlphanum = (`elem` ['A'..'Z'])
 
 -- The only special thing about sections is using -. From the definition of sections,
@@ -81,3 +81,4 @@ isUpperAlphanum = (`elem` ['A'..'Z'])
 -- that subtracts 4 from the number it gets as a parameter, partially apply the
 -- subtract function like so: (subtract 4).
 
+-- Generally, if you have a function like foo a = bar b a, you can rewrite it as foo = bar b, because of currying.

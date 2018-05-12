@@ -84,3 +84,10 @@ elem' a [] = False
 elem' a (x:xs)
     | a == x    = True
     | otherwise = a `elem'` xs
+
+-- implementing sum
+-- it takes an list of numbers and returns sum of them.
+
+sum' :: (Num a) => [a] -> a
+sum' [] = 0
+sum' (x:xs) = (+) x (sum' xs)
