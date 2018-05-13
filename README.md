@@ -37,3 +37,6 @@
    - [scan](/06_higher-order-functions/scan.hs)
    - [function application [$]](/06_higher-order-functions/function-application.hs)
    - [function composition [.]](/06_higher-order-functions/function-composition.hs)
+7. Modules ([Book Page](http://learnyouahaskell.com/modules))
+   - [loading](/07_modules/loading.hs)
+   - ...
