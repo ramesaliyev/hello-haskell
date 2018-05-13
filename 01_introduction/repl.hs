@@ -9,4 +9,8 @@
 -- some settings
 
 -- => :set +s
--- see the execution time of anything you run, along with memory usage. 
+-- see the execution time of anything you run, along with memory usage.
+
+-- => :m + <name> <name> <name>
+-- load modules
+
