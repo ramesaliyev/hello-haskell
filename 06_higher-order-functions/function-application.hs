@@ -1,6 +1,6 @@
 -- # http://learnyouahaskell.com/higher-order-functions#function-application
 
--- LOAD THIS FILE WITH ":l function-application-$" within repl (ghci)
+-- LOAD THIS FILE WITH ":l function-application" within repl (ghci)
 -- and reload with ":r"
 
 -- $ function, also called function application.

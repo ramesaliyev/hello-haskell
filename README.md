@@ -35,5 +35,5 @@
    - [lambdas](/06_higher-order-functions/lambdas.hs)
    - [fold](/06_higher-order-functions/fold.hs)
    - [scan](/06_higher-order-functions/scan.hs)
-   - [function application, $](/06_higher-order-functions/function-application-$.hs)
-   - ...
+   - [function application [$]](/06_higher-order-functions/function-application.hs)
+   - [function composition [.]](/06_higher-order-functions/function-composition.hs)
