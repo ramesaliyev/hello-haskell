@@ -125,6 +125,17 @@ example_18 = break (>3) [1,2,3,4,5]
 example_19 = break (<3) [1,2,3,4,5]
 -- ==> ([],[1,2,3,4,5])
 
+-- While span and break are done once they encounter the first element
+-- that doesn't and does satisfy the predicate, partition goes through
+-- the whole list and splits it up according to the predicate.
+
+-- > partition
+-- It takes a list and a predicate and returns a pair of lists.
+-- The first list in the result contains all the elements that satisfy
+-- the predicate, the second contains all the ones that don't.
+example_31 = partition (>3) [1,3,5,6,3,2,1,0,3,7]  
+-- ==> ([5,6,7], [1,3,3,2,1,0,3])  
+
 -- > sort
 -- Simply sorts a list. The type of the elements in the list
 -- has to be part of the Ord typeclass.
@@ -157,3 +168,23 @@ search needle haystack =
 -- => search [3,4] [1,2,3,4,5]
 -- ==> True
 
+-- > isInfixOf
+-- It is the search function that we implemented above.
+-- It searches for a sublist within a list and returns True if
+-- the sublist we're looking for is somewhere inside the target list.
+example_26 = isInfixOf "cat" "the cat"
+-- ==> True
+
+-- > isPrefixOf & isSuffixOf
+-- search for a sublist at the beginning and at the end of a list, respectively.
+example_27 = "hey" `isPrefixOf` "hey there!"  
+-- ==> True
+example_28 = "there!" `isSuffixOf` "oh hey there!"  
+-- ==> True  
+
+-- > elem & notElem
+-- check if an element is or isn't inside a list, respectively.
+example_29 = elem 1 [2,3,4,1]
+-- ==> True
+example_30 = notElem 3 [1,2,5]
+-- ==> True
