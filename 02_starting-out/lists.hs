@@ -5,7 +5,7 @@
 -- LOAD THIS FILE WITH ":l lists" within repl (ghci)
 -- and reload with ":r"
 
---  In Haskell, lists are a homogenous data structure.
+-- In Haskell, lists are a homogenous data structure.
 -- It stores several elements of the same type.
 lostNumbers = [4, 8, 15, 16, 23, 42]
 

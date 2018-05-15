@@ -148,3 +148,12 @@ example_24 = tails "w00t"
 -- ==> ["w00t","00t","0t","t",""]  
 example_25 = let w = "w00t" in zip (inits w) (tails w)  
 -- ==> [("","w00t"),("w","00t"),("w0","0t"),("w00","t"),("w00t","")]
+
+-- Let's use a fold to implement searching a list for a sublist.
+search :: (Eq a) => [a] -> [a] -> Bool  
+search needle haystack =   
+    let nlen = length needle  
+    in  foldl (\acc x -> if take nlen x == needle then True else acc) False (tails haystack)
+-- => search [3,4] [1,2,3,4,5]
+-- ==> True
+
