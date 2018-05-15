@@ -105,4 +105,46 @@ example_14 = takeWhile (>3) [6,5,4,3,2,1,2,3,4,5,4,3,2,1]
 example_15 = dropWhile (<3) [1,2,2,2,3,4,5,4,3,2,1]
 -- ==> [3,4,5,4,3,2,1]
 
+-- > span
+-- It is kind of like takeWhile, only it returns a pair of lists.
+-- The first list contains everything the resulting list from takeWhile would contain
+-- if it were called with the same predicate and the same list.
+-- The second list contains the part of the list that would have been dropped.
+example_16 = span (>3) [1,2,3,4,5]
+-- ==> ([],[1,2,3,4,5])
+example_17 = span (<3) [1,2,3,4,5]
+-- ==> ([1,2],[3,4,5])
 
+-- > break
+-- It is the opposite of span.
+-- Whereas span spans the list while the predicate is true,
+-- break breaks it when the predicate is first true.
+-- Doing break p is the equivalent of doing span (not . p).
+example_18 = break (>3) [1,2,3,4,5]
+-- ==> ([1,2,3],[4,5])
+example_19 = break (<3) [1,2,3,4,5]
+-- ==> ([],[1,2,3,4,5])
+
+-- > sort
+-- Simply sorts a list. The type of the elements in the list
+-- has to be part of the Ord typeclass.
+example_20 = sort [8,5,3,2,1,6,4,2]  
+-- ==> [1,2,2,3,4,5,6,8]  
+
+-- > group
+-- It takes a list and groups adjacent elements into sublists if they are equal.
+example_21 = group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]  
+-- ==> [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
+-- for example, find out how many times each element appears in the list; 
+example_22 = map (\l@(x:xs) -> (x,length l)) . group . sort $ [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
+
+-- > inits & tails
+-- are like init (returns everything except last element) and
+-- tail (returns everything except first element), only they recursively
+-- apply that to a list until there's nothing left. Observe.
+example_23 = inits "w00t"  
+-- ==> ["","w","w0","w00","w00t"]  
+example_24 = tails "w00t"  
+-- ==> ["w00t","00t","0t","t",""]  
+example_25 = let w = "w00t" in zip (inits w) (tails w)  
+-- ==> [("","w00t"),("w","00t"),("w0","0t"),("w00","t"),("w00t","")]
