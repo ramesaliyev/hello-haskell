@@ -8,6 +8,9 @@
 -- Because the Prelude module exports some functions from Data.List,
 -- we've already met some of its functions like map and filter.
 
+-- SO CHECK BASIC LIST FUNCTIONS (WHICH ALSO PROVIDED IN DEFAULT
+-- PRELUDE MODULE) IN 02_starting_out/lists.hs
+
 -- We don't have to import Data.List via a qualified import because it doesn't
 -- clash with any Prelude names. (Except for those that Prelude already steals from Data.List)
 
@@ -196,7 +199,7 @@ example_30 = notElem 3 [1,2,5]
 -- Maybe is an algebraic data type and its value can either be Just something or Nothing.
 example_32 = find (>4) [1,2,3,4,5,6]
 -- ==> Just 5
-example_33 =find (>9) [1,2,3,4,5,6]
+example_33 = find (>9) [1,2,3,4,5,6]
 -- ==> Nothing
 -- a value of the type Maybe can contain either no elements or one element.
 
@@ -260,5 +263,74 @@ example_46 = words "hey these           are    the words in this\nsentence"
 example_47 = unwords ["hey","there","mate"]
 -- ==> "hey there mate"
 
+-- > nub
+-- It takes a list and weeds out the duplicate elements
+example_48 = nub [1,2,3,4,3,2,1,2,3,4,3,2,1]
+-- ==> [1,2,3,4]
 
+-- > delete
+-- It takes an element and a list and deletes the first occurence of that element in the list.
+example_49 = delete 'h' "hey there ghang!"
+-- ==> "ey there ghang!"
 
+-- > \\
+-- This is the list difference function. It acts like a set difference, basically.
+-- For every element in the right-hand list, it removes a matching element in the left one.
+example_50 = [1,2,3,4,5] \\ [3,1,5]
+-- ==> [2,4]
+example_51 = [1,2,3,4,5,1] \\ [3,1,5]
+-- ==> [2,4,1]
+-- Doing [1,2,3,4,5] \\ [3,1,5] is like doing delete 3 . delete 1 . delete 5 $ [1,2,3,4,5]
+
+-- > union
+-- It pretty much goes over every element in the second list and appends it to
+-- the first one if it isn't already in yet.
+example_52 = "hey man" `union` "man what's up"
+-- ==> "hey manwt'sup"
+example_53 = [1..7] `union` [5..10]
+-- ==> [1,2,3,4,5,6,7,8,9,10]
+
+-- > intersect
+-- It returns only the elements that are found in both lists.
+example_54 = [1..7] `intersect` [5..10]
+-- ==> [5,6,7]
+
+-- > insert
+-- takes an element and a list of elements that can be sorted and inserts it into
+-- the last position where it's still less than or equal to the next element.
+example_55 = insert 4 [1,2,3,5,6,7]
+-- ==> [1,2,3,4,5,6,7]
+
+-- Since length, take, drop, splitAt, !! and replicate take an Int as one of their
+-- parameters (or return an Int); there is more generic ans usable versions of them.
+-- length > genericLength
+-- take > genericTake
+-- drop > genericDrop
+-- splitAt > genericSplitAt
+-- !! > genericIndex
+-- replicate > genericReplicate
+
+-- The nub, delete, union, intersect and group functions all have their more general
+-- counterparts which takes an equality function and then compare them by using that
+-- equality function. -- So group is equal to groupBy (==)
+-- nub > nubBy
+-- delete > deleteBy
+-- union > unionBy
+-- intersect > intersectBy
+-- group > groupBy
+
+-- The sort, insert, maximum and minimum also have their more general equivalents
+-- which takes a function that determine if one element is greater, smaller or equal
+-- to the other. This function must return one of of LT, EQ or GT.
+-- So sort is the equivalent of (sortBy compare).
+-- sort > sortBy
+-- insert > insertBy
+-- maximum > maximumBy
+-- minimum > minimumBy
+-- This will reverse the list;
+example_56 = sortBy (\x y -> GT) [1,2,3,4,5,6]
+-- ==> [6,5,4,3,2,1]
+
+-- NOTE: When you're dealing with By functions that take an equality function,
+-- you usually do (==) `on` something and when you're dealing with By functions
+-- that take an ordering function, you usually do compare `on` something.

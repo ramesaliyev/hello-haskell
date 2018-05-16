@@ -39,5 +39,6 @@
    - [function composition [.]](/06_higher-order-functions/function-composition.hs)
 7. Modules ([Book Page](http://learnyouahaskell.com/modules))
    - [loading](/07_modules/loading.hs)
-   - [WIP] [Data.List](/07_modules/module-data-list.hs)
+   - [Data.List](/07_modules/module-data-list.hs)
+   - [Data.Function](/07_modules/module-data-function.hs)
    - ...
