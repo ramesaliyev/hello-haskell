@@ -128,6 +128,7 @@ example_19 = break (<3) [1,2,3,4,5]
 -- While span and break are done once they encounter the first element
 -- that doesn't and does satisfy the predicate, partition goes through
 -- the whole list and splits it up according to the predicate.
+-- partition is at example 31.
 
 -- > partition
 -- It takes a list and a predicate and returns a pair of lists.
@@ -188,3 +189,74 @@ example_29 = elem 1 [2,3,4,1]
 -- ==> True
 example_30 = notElem 3 [1,2,5]
 -- ==> True
+
+-- > find
+-- It takes a list and a predicate and returns the first element that satisfies the predicate.
+-- But it returns that element wrapped in a Maybe value.
+-- Maybe is an algebraic data type and its value can either be Just something or Nothing.
+example_32 = find (>4) [1,2,3,4,5,6]  
+-- ==> Just 5  
+example_33 =find (>9) [1,2,3,4,5,6]  
+-- ==> Nothing 
+-- a value of the type Maybe can contain either no elements or one element.
+
+-- > elemIndex
+-- It maybe returns the index of the element we're looking for. Otherwise Nothing.
+example_34 = 4 `elemIndex` [1,2,3,4,5,6]  
+-- ==> Just 3  
+example_35 = 10 `elemIndex` [1,2,3,4,5,6]  
+-- ==> Nothing 
+
+-- > elemIndices
+-- It is like elemIndex, only it returns a list of indices.
+-- Because we're using a list to represent the indices, we don't need a Maybe type,
+-- because failure can be represented as the empty list, which is very much synonymous to Nothing.
+example_36 =' ' `elemIndices` "Where are the spaces?"  
+-- ==> [5,9,13]
+
+-- > findIndex
+-- is like find, but it maybe returns the index of the first element that satisfies the predicate.
+example_37 = findIndex (==4) [5,3,2,1,6,4]  
+-- ==> Just 5  
+example_38 = findIndex (==7) [5,3,2,1,6,4]  
+-- ==> Nothing
+
+-- > findIndices
+-- returns the indices of all elements that satisfy the predicate in the form of a list.
+example_39 = findIndices (`elem` ['A'..'Z']) "Where Are The Caps?"  
+-- ==> [0,6,10,14]
+
+-- > zip 
+-- It zip together two lists in a tuple manner.
+example_40 = zip [1..] ["Kamil", "Falan", "Filan"] 
+-- ==> [(1,"Kamil"),(2,"Falan"),(3,"Filan")]
+
+-- > zipWith
+-- It zip together two lists with a binary function. 
+example_41 = zipWith (+) [1,2,3,4,5] [10,20,30,40,50]
+-- ==> [11,22,33,44,55]
+
+-- But what if we want to zip/zipWith together three or four lists?
+-- Well.. for that, we have;
+-- > zip3, zip4, zip5, zip6, zip7
+-- > zipWith3, zipWith4, zipWith5, zipWith6, zipWith7
+
+-- > lines
+-- It takes a string and returns every line of that string in a separate list.
+example_42 = lines "first line\nsecond line\nthird line"  
+-- ==> ["first line","second line","third line"]  
+
+-- > unlines
+-- It takes a list of strings and joins them together using a '\n'. (inverse function of lines)
+example_43 = unlines ["first line", "second line", "third line"]  
+-- ==> "first line\nsecond line\nthird line\n"
+
+-- > words & unwords
+-- They are for splitting a line of text into words or joining a list of words into a text.
+example_45 = words "hey these are the words in this sentence"  
+-- ==> ["hey","these","are","the","words","in","this","sentence"]  
+example_46 = words "hey these           are    the words in this\nsentence"  
+-- ==> ["hey","these","are","the","words","in","this","sentence"]  
+example_47 = unwords ["hey","there","mate"]  
+-- ==> "hey there mate"
+
