@@ -10,7 +10,7 @@
 -- you have to surround it in parentheses
 
 sumTwo a b = (+) a b
-isEqual a b = (==) a b
+isEqual a b = (==) a b -- == also can compare lists
 
 isNotEqual a b = not (isEqual a b)
 

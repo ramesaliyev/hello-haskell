@@ -6,8 +6,8 @@
 -- Functions can take functions as parameters and also return functions.
 
 -- This functions takes a function and then applies it twice to something!
-applyTwice :: (a -> a) -> a -> a  
-applyTwice f x = f (f x)  
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
 -- => applyTwice (+3) 10
 -- ==> 16
 -- => applyTwice (++ " HAHA") "HEY"
@@ -20,26 +20,26 @@ applyTwice f x = f (f x)
 -- implementing zipWith
 -- It takes a function and two lists as parameters and then joins the
 -- two lists by applying the function between corresponding elements.
-zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]  
-zipWith' _ [] _ = []  
-zipWith' _ _ [] = []  
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' _ [] _ = []
+zipWith' _ _ [] = []
 zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
 -- => zipWith' (+) [4,2,5,6] [2,6,2,3]
 -- ==> [6,8,7,9]
 -- => zipWith (++) ["1", "2", "3"] ["a", "b", "c"]
 -- ==> ["1a","2b","3c"]
--- => zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]]  
+-- => zipWith' (zipWith' (*)) [[1,2,3],[3,5,6],[2,3,4]] [[3,2,2],[3,4,5],[5,4,3]]
 -- ==> [[3,4,6],[9,20,30],[10,12,12]]
 
 -- implementing flip
 -- It takes a function and returns a function that is like our original function,
 -- only the first two arguments are flipped.
-flip' :: (a -> b -> c) -> b -> a -> c  
+flip' :: (a -> b -> c) -> b -> a -> c
 flip' f y x = f x y
 -- => flip' zip [1,2,3,4,5] "hello"
 -- ==> [('h',1),('e',2),('l',3),('l',4),('o',5)
--- => zipWith (flip' div) [2,2..] [10,8,6,4,2]  
--- ==> [5,4,3,2,1] 
+-- => zipWith (flip' div) [2,2..] [10,8,6,4,2]
+-- ==> [5,4,3,2,1]
 
 -- first some words (from https://stackoverflow.com/questions/25589257/what-does-left-to-right-associativity-mean)
 

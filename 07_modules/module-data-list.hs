@@ -134,37 +134,37 @@ example_19 = break (<3) [1,2,3,4,5]
 -- It takes a list and a predicate and returns a pair of lists.
 -- The first list in the result contains all the elements that satisfy
 -- the predicate, the second contains all the ones that don't.
-example_31 = partition (>3) [1,3,5,6,3,2,1,0,3,7]  
--- ==> ([5,6,7], [1,3,3,2,1,0,3])  
+example_31 = partition (>3) [1,3,5,6,3,2,1,0,3,7]
+-- ==> ([5,6,7], [1,3,3,2,1,0,3])
 
 -- > sort
 -- Simply sorts a list. The type of the elements in the list
 -- has to be part of the Ord typeclass.
-example_20 = sort [8,5,3,2,1,6,4,2]  
--- ==> [1,2,2,3,4,5,6,8]  
+example_20 = sort [8,5,3,2,1,6,4,2]
+-- ==> [1,2,2,3,4,5,6,8]
 
 -- > group
 -- It takes a list and groups adjacent elements into sublists if they are equal.
-example_21 = group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]  
+example_21 = group [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
 -- ==> [[1,1,1,1],[2,2,2,2],[3,3],[2,2,2],[5],[6],[7]]
--- for example, find out how many times each element appears in the list; 
+-- for example, find out how many times each element appears in the list;
 example_22 = map (\l@(x:xs) -> (x,length l)) . group . sort $ [1,1,1,1,2,2,2,2,3,3,2,2,2,5,6,7]
 
 -- > inits & tails
 -- are like init (returns everything except last element) and
 -- tail (returns everything except first element), only they recursively
 -- apply that to a list until there's nothing left. Observe.
-example_23 = inits "w00t"  
--- ==> ["","w","w0","w00","w00t"]  
-example_24 = tails "w00t"  
--- ==> ["w00t","00t","0t","t",""]  
-example_25 = let w = "w00t" in zip (inits w) (tails w)  
+example_23 = inits "w00t"
+-- ==> ["","w","w0","w00","w00t"]
+example_24 = tails "w00t"
+-- ==> ["w00t","00t","0t","t",""]
+example_25 = let w = "w00t" in zip (inits w) (tails w)
 -- ==> [("","w00t"),("w","00t"),("w0","0t"),("w00","t"),("w00t","")]
 
 -- Let's use a fold to implement searching a list for a sublist.
-search :: (Eq a) => [a] -> [a] -> Bool  
-search needle haystack =   
-    let nlen = length needle  
+search :: (Eq a) => [a] -> [a] -> Bool
+search needle haystack =
+    let nlen = length needle
     in  foldl (\acc x -> if take nlen x == needle then True else acc) False (tails haystack)
 -- => search [3,4] [1,2,3,4,5]
 -- ==> True
@@ -178,10 +178,10 @@ example_26 = isInfixOf "cat" "the cat"
 
 -- > isPrefixOf & isSuffixOf
 -- search for a sublist at the beginning and at the end of a list, respectively.
-example_27 = "hey" `isPrefixOf` "hey there!"  
+example_27 = "hey" `isPrefixOf` "hey there!"
 -- ==> True
-example_28 = "there!" `isSuffixOf` "oh hey there!"  
--- ==> True  
+example_28 = "there!" `isSuffixOf` "oh hey there!"
+-- ==> True
 
 -- > elem & notElem
 -- check if an element is or isn't inside a list, respectively.
@@ -194,45 +194,45 @@ example_30 = notElem 3 [1,2,5]
 -- It takes a list and a predicate and returns the first element that satisfies the predicate.
 -- But it returns that element wrapped in a Maybe value.
 -- Maybe is an algebraic data type and its value can either be Just something or Nothing.
-example_32 = find (>4) [1,2,3,4,5,6]  
--- ==> Just 5  
-example_33 =find (>9) [1,2,3,4,5,6]  
--- ==> Nothing 
+example_32 = find (>4) [1,2,3,4,5,6]
+-- ==> Just 5
+example_33 =find (>9) [1,2,3,4,5,6]
+-- ==> Nothing
 -- a value of the type Maybe can contain either no elements or one element.
 
 -- > elemIndex
 -- It maybe returns the index of the element we're looking for. Otherwise Nothing.
-example_34 = 4 `elemIndex` [1,2,3,4,5,6]  
--- ==> Just 3  
-example_35 = 10 `elemIndex` [1,2,3,4,5,6]  
--- ==> Nothing 
+example_34 = 4 `elemIndex` [1,2,3,4,5,6]
+-- ==> Just 3
+example_35 = 10 `elemIndex` [1,2,3,4,5,6]
+-- ==> Nothing
 
 -- > elemIndices
 -- It is like elemIndex, only it returns a list of indices.
 -- Because we're using a list to represent the indices, we don't need a Maybe type,
 -- because failure can be represented as the empty list, which is very much synonymous to Nothing.
-example_36 =' ' `elemIndices` "Where are the spaces?"  
+example_36 =' ' `elemIndices` "Where are the spaces?"
 -- ==> [5,9,13]
 
 -- > findIndex
 -- is like find, but it maybe returns the index of the first element that satisfies the predicate.
-example_37 = findIndex (==4) [5,3,2,1,6,4]  
--- ==> Just 5  
-example_38 = findIndex (==7) [5,3,2,1,6,4]  
+example_37 = findIndex (==4) [5,3,2,1,6,4]
+-- ==> Just 5
+example_38 = findIndex (==7) [5,3,2,1,6,4]
 -- ==> Nothing
 
 -- > findIndices
 -- returns the indices of all elements that satisfy the predicate in the form of a list.
-example_39 = findIndices (`elem` ['A'..'Z']) "Where Are The Caps?"  
+example_39 = findIndices (`elem` ['A'..'Z']) "Where Are The Caps?"
 -- ==> [0,6,10,14]
 
--- > zip 
+-- > zip
 -- It zip together two lists in a tuple manner.
-example_40 = zip [1..] ["Kamil", "Falan", "Filan"] 
+example_40 = zip [1..] ["Kamil", "Falan", "Filan"]
 -- ==> [(1,"Kamil"),(2,"Falan"),(3,"Filan")]
 
 -- > zipWith
--- It zip together two lists with a binary function. 
+-- It zip together two lists with a binary function.
 example_41 = zipWith (+) [1,2,3,4,5] [10,20,30,40,50]
 -- ==> [11,22,33,44,55]
 
@@ -243,20 +243,22 @@ example_41 = zipWith (+) [1,2,3,4,5] [10,20,30,40,50]
 
 -- > lines
 -- It takes a string and returns every line of that string in a separate list.
-example_42 = lines "first line\nsecond line\nthird line"  
--- ==> ["first line","second line","third line"]  
+example_42 = lines "first line\nsecond line\nthird line"
+-- ==> ["first line","second line","third line"]
 
 -- > unlines
 -- It takes a list of strings and joins them together using a '\n'. (inverse function of lines)
-example_43 = unlines ["first line", "second line", "third line"]  
+example_43 = unlines ["first line", "second line", "third line"]
 -- ==> "first line\nsecond line\nthird line\n"
 
 -- > words & unwords
 -- They are for splitting a line of text into words or joining a list of words into a text.
-example_45 = words "hey these are the words in this sentence"  
--- ==> ["hey","these","are","the","words","in","this","sentence"]  
-example_46 = words "hey these           are    the words in this\nsentence"  
--- ==> ["hey","these","are","the","words","in","this","sentence"]  
-example_47 = unwords ["hey","there","mate"]  
+example_45 = words "hey these are the words in this sentence"
+-- ==> ["hey","these","are","the","words","in","this","sentence"]
+example_46 = words "hey these           are    the words in this\nsentence"
+-- ==> ["hey","these","are","the","words","in","this","sentence"]
+example_47 = unwords ["hey","there","mate"]
 -- ==> "hey there mate"
+
+
 

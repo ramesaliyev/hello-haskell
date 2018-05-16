@@ -7,11 +7,11 @@
 -- but are very local, so they don't span across guards.
 
 -- A function that gives us a cylinder's surface area based on its height and radius:
-cylinder :: (RealFloat a) => a -> a -> a  
-cylinder r h = 
-    let sideArea = 2 * pi * r * h  
-        topArea = pi * r ^2  
-    in  sideArea + 2 * topArea 
+cylinder :: (RealFloat a) => a -> a -> a
+cylinder r h =
+    let sideArea = 2 * pi * r * h
+        topArea = pi * r ^2
+    in  sideArea + 2 * topArea
 
 -- The form is let <bindings> in <expression>.
 
@@ -51,15 +51,15 @@ calcBmisWWhere :: (RealFloat a) => [(a, a)] -> [a]
 calcBmisWWhere xs = [bmi w h | (w, h) <- xs]
     where bmi weight height = weight / height ^ 2
 -- We can use let like this;
-calcBmis :: (RealFloat a) => [(a, a)] -> [a]  
+calcBmis :: (RealFloat a) => [(a, a)] -> [a]
 calcBmis xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
 -- We include a let inside a list comprehension much like we would a predicate,
 -- only it doesn't filter the list, it only binds to names. The names defined in a
 -- let inside a list comprehension are visible to the output function (the part before the |)
 -- and all predicates and sections that come after of the binding.
 -- So we could make our function return only the BMIs of fat people:
-getFats :: (RealFloat a) => [(a, a)] -> [a]  
-getFats xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]  
+getFats :: (RealFloat a) => [(a, a)] -> [a]
+getFats xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
 -- We can't use the bmi name in the (w, h) <- xs part because it's defined prior to the let binding.
 -- We omitted the in part of the let binding when we used them in list comprehensions because
 -- the visibility of the names is already predefined there.
