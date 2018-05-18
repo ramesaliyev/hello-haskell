@@ -41,5 +41,5 @@
    - [loading](/07_modules/loading.hs)
    - [Data.List](/07_modules/module-data-list.hs)
    - [Data.Function](/07_modules/module-data-function.hs)
-   - (wip) [Data.Char](/07_modules/module-data-char.hs)
+   - [Data.Char](/07_modules/module-data-char.hs)
    - ...
