@@ -1,6 +1,6 @@
 -- # http://learnyouahaskell.com/modules#loading-modules
 
--- LOAD THIS FILE WITH ":l loading" within repl (ghci)
+-- LOAD THIS FILE WITH ":l loading-modules" within repl (ghci)
 -- and reload with ":r"
 
 -- A Haskell...
