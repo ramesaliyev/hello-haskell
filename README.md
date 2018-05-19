@@ -42,5 +42,5 @@
    - [Data.List](/07_modules/module-data-list.hs)
    - [Data.Function](/07_modules/module-data-function.hs)
    - [Data.Char](/07_modules/module-data-char.hs)
-   - (wip) [Data.Map](/07_modules/module-data-map.hs)
+   - [Data.Map](/07_modules/module-data-map.hs)
    - ...
