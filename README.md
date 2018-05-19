@@ -43,4 +43,5 @@
    - [Data.Function](/07_modules/module-data-function.hs)
    - [Data.Char](/07_modules/module-data-char.hs)
    - [Data.Map](/07_modules/module-data-map.hs)
+   - [Data.Set](/07_modules/module-data-set.hs)
    - ...
