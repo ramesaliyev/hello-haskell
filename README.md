@@ -48,5 +48,5 @@
    - [GeometryComplete](/07_modules/GeometryComplete.hs)
    - [Geometry](/07_modules/Geometry)
 8. Making Our Own Types and Typeclasses ([Book Page](http://learnyouahaskell.com/making-our-own-types-and-typeclasses))
-   - (wip) [algebraic data types](/08_making-our-own-types-and-typeclasses/algebraic-data-types.hs)
+   - [algebraic data types](/08_making-our-own-types-and-typeclasses/algebraic-data-types.hs)
    - ...
