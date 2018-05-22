@@ -50,4 +50,5 @@
 8. Making Our Own Types and Typeclasses ([Book Page](http://learnyouahaskell.com/making-our-own-types-and-typeclasses))
    - [algebraic data types](/08_making-our-own-types-and-typeclasses/algebraic-data-types.hs)
    - [record syntax](/08_making-our-own-types-and-typeclasses/record-syntax.hs)
+   - [type parameters](/08_making-our-own-types-and-typeclasses/type-parameters.hs)
    - ...
