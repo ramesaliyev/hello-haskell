@@ -51,4 +51,5 @@
    - [algebraic data types](/08_making-our-own-types-and-typeclasses/algebraic-data-types.hs)
    - [record syntax](/08_making-our-own-types-and-typeclasses/record-syntax.hs)
    - [type parameters](/08_making-our-own-types-and-typeclasses/type-parameters.hs)
+   - [derived instances](/08_making-our-own-types-and-typeclasses/derived-instances.hs)
    - ...

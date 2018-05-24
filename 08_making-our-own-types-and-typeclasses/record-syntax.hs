@@ -47,7 +47,8 @@ data Car' = Car' String String Int deriving (Show)
 
 data Car = Car {company :: String, model :: String, year :: Int} deriving (Show)
 
--- => Car {company="Ford", model="Mustang", year=1967}
+aCar =  Car {company="Ford", model="Mustang", year=1967}
+-- => aCar
 -- ==> Car {company = "Ford", model = "Mustang", year = 1967}
 
 -- When making a new car, we don't have to necessarily put the fields in
