@@ -16,6 +16,8 @@
 
 import Data.List
 
+-- Take a look to 02_starting_out/lists for more basic utils.
+
 -- > intersperse
 -- takes an element and a list and then puts that element in between
 -- each pair of elements in the list.

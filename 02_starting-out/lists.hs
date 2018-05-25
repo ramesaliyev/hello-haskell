@@ -115,7 +115,10 @@ first24MultiplesOf13' = take 24 [13,26..]
 -- > repeat x (takes an ELEMENT and produces an infinite list from repeating it.)
 -- => take 10 (repeat 5)
 -- ==> [5,5,5,5,5,5,5,5,5,5]
+
 -- Although it's simpler to just use the replicate function if you want some number of the same element in a list.
+
+-- > replicate x v (takes an ELEMENT and produces a list which contains v times of that element)
 -- => replicate 3 10
 -- ==> [10, 10, 10]
 
