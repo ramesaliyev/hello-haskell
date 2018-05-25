@@ -68,3 +68,90 @@ isThisMike = read "Person {firstName =\"Michael\", lastName =\"Diamond\", age = 
 -- We can also read parameterized types, but we have to fill in the type parameters.
 -- So we can't do read "Just 't'" :: Maybe a, but we can do read "Just 't'" :: Maybe Char.
 
+-- We can derive instances for the Ord type class, which is for types that have values that
+-- can be ordered. If we compare two values of the same type that were made using different
+-- constructors, the value which was made with a constructor that's defined first is
+-- considered smaller.
+
+-- For instance, consider the Bool type, which can have a value of either False or True.
+
+data Bool = False | True deriving (Eq, Ord)
+
+-- Because the False value constructor is specified first and the True value constructor
+-- is specified after it, we can consider True as greater than False.
+
+-- => True `compare` False
+-- ==> GT
+-- => True > False
+-- ==> True
+-- => True < False
+-- ==> False
+
+-- In the Maybe a data type, the Nothing value constructor is specified before the Just
+-- value constructor, so a value of Nothing is always smaller than a value of Just
+-- something, even if that something is minus one billion trillion. But if we compare
+-- two Just values, then it goes to compare what's inside them.
+
+-- => Nothing < Just 100
+-- ==> True
+-- => Nothing > Just (-49999)
+-- ==> False
+-- => Just 3 `compare` Just 2
+-- ==> GT
+-- => Just 100 > Just 50
+-- ==> True
+
+-- But we can't do something like Just (*3) > Just (*2), because (*3) and
+-- (*2) are functions, which aren't instances of Ord.
+
+-- We can easily use algebraic data types to make enumerations and
+-- the Enum and Bounded typeclasses help us with that.
+
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
+           deriving (Eq, Ord, Show, Read, Bounded, Enum)
+
+-- Because all the value constructors are nullary (take no parameters, i.e. fields),
+-- we can make it part of the Enum typeclass.
+
+-- Enum typeclass is for things that have predecessors and successors.
+-- Bounded typeclass is for things that have a lowest possible value and highest possible value.
+-- Show and Read typeclasses are for converting values of this type to and from strings.
+-- Eq and Ord typeclasses are for comparing or equating values
+
+-- [Show]
+-- => Wednesday
+-- ==> Wednesday
+-- => show Wednesday
+-- ==> "Wednesday"
+
+-- [Read]
+-- => read "Saturday" :: Day
+-- ==> Saturday
+
+-- [Eq]
+-- => Saturday == Sunday
+-- ==> False
+-- => Saturday == Saturday
+-- ==> True
+
+-- [Ord]
+-- => Saturday > Friday
+-- ==> True
+-- => Monday `compare` Wednesday
+-- ==> LT
+
+-- [Bounded]
+-- => minBound :: Day
+-- ==> Monday
+-- => maxBound :: Day
+-- ==> Sunday
+
+-- [Enum]
+-- => succ Monday
+-- ==> Tuesday
+-- => pred Saturday
+-- ==> Friday
+-- => [Thursday .. Sunday]
+-- ==> [Thursday,Friday,Saturday,Sunday]
+-- => [minBound .. maxBound] :: [Day]
+-- ==> [Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]
