@@ -3,7 +3,7 @@
 -- LOAD THIS FILE WITH ":l type-synonyms" within repl (ghci)
 -- and reload with ":r"
 
-import Data.Map (Map)
+import qualified Data.Map as Map
 
 -- Previously, we mentioned that when writing types, the [Char] and String
 -- types are equivalent and interchangeable. That's implemented with type synonyms.
@@ -67,11 +67,11 @@ type AssocList k v = [(k,v)]
 -- If we wanted a type that represents a map (from Data.Map) from integers to
 -- something, we could either do this:
 
-type IntMap v = Map Int v
+type IntMap v = Map.Map Int v
 
 -- or
 
-type IntMap' = Map Int
+type IntMap' = Map.Map Int
 
 -- Either way, the IntMap type constructor takes one parameter and that is
 -- the type of what the integers will point to.
@@ -86,4 +86,97 @@ type IntMap' = Map Int
 -- can only be used in the type portion of Haskell. We're in Haskell's type portion
 -- whenever we're defining new types (so in data and type declarations) or when
 -- we're located after a ::. The :: is in type declarations or in type annotations.
+
+-- Another cool data type that takes two types as its parameters is the Either a b type.
+
+data Either' a b = Left' a | Right' b deriving (Eq, Ord, Read, Show)
+
+-- It has two value constructors. If the Left is used, then its contents are of type a
+-- and if Right is used, then its contents are of type b. So we can use this type to
+-- encapsulate a value of one type or another and then when we get a value of type Either a b,
+-- we usually pattern match on both Left and Right and we different stuff based on which
+-- one of them it was.
+
+-- => :t Right 'a'
+-- ==> Right 'a' :: Either a Char
+-- => :t Left True
+-- ==> Left True :: Either Bool b
+
+-- So far, we've seen that Maybe a was mostly used to represent the results of computations
+-- that could have either failed or not. But sometimes, Maybe a isn't good enough because
+-- Nothing doesn't really convey much information other than that something has failed.
+-- That's cool for functions that can fail in only one way or if we're just not interested
+-- in how and why they failed. A Data.Map lookup fails only if the key we were looking
+-- for wasn't in the map, so we know exactly what happened. However, when we're interested
+-- in how some function failed or why, we usually use the result type of Either a b,
+-- where a is some sort of type that can tell us something about the possible failure
+-- and b is the type of a successful computation. Hence, errors use the Left value
+-- constructor while results use Right.
+
+-- An example:
+-- A high-school has lockers so that students have some place to put their Guns'n'Roses posters.
+-- Each locker has a code combination. When a student wants a new locker, they tell the locker
+-- supervisor which locker number they want and he gives them the code. However, if someone is
+-- already using that locker, he can't tell them the code for the locker and they have to pick
+-- a different one. We'll use a map from Data.Map to represent the lockers. It'll map from locker
+-- numbers to a pair of whether the locker is in use or not and the locker code.
+
+data LockerState = Taken | Free deriving (Show, Eq)
+
+type Code = String
+
+type LockerMap = Map.Map Int (LockerState, Code)
+
+-- We're going to make a function that searches for the code in a locker map.
+-- We're going to use an Either String Code type to represent our result,
+-- because our lookup can fail in two ways
+-- a) the locker can be taken, in which case we can't tell the code or
+-- b) the locker number might not exist at all.
+-- If the lookup fails, we're just going to use a String to tell what's happened.
+
+lockerLookup :: Int -> LockerMap -> Either String Code
+lockerLookup lockerNumber map =
+    case Map.lookup lockerNumber map of
+        Nothing -> Left $ "Locker number " ++ show lockerNumber ++ " doesn't exist!"
+        Just (state, code) -> if state /= Taken
+                                then Right code
+                                else Left $ "Locker " ++ show lockerNumber ++ " is already taken!"
+
+-- We do a normal lookup in the map.
+-- a) If we get a Nothing, we return a value of type Left String,
+--    saying that the locker doesn't exist at all.
+-- b) If we do find it, then we do an additional check to see if the locker is taken.
+--    1) If it is, return a Left saying that it's already taken.
+--    2) If it isn't, then return a value of type Right Code,
+--       in which we give the student the correct code for the locker.
+--       It's actually a Right String, but we introduced that type synonym to introduce
+--       some additional documentation into the type declaration.
+
+lockers :: LockerMap
+lockers = Map.fromList
+    [(100,(Taken,"ZD39I"))
+    ,(101,(Free,"JAH3I"))
+    ,(103,(Free,"IQSA9"))
+    ,(105,(Free,"QOTSA"))
+    ,(109,(Taken,"893JJ"))
+    ,(110,(Taken,"99292"))
+    ]
+
+-- => lockerLookup 101 lockers
+-- ==> Right "JAH3I"
+
+-- => lockerLookup 100 lockers
+-- ==> Left "Locker 100 is already taken!"
+
+-- => lockerLookup 102 lockers
+-- ==> Left "Locker number 102 doesn't exist!"
+
+-- => lockerLookup 110 lockers
+-- ==> Left "Locker 110 is already taken!"
+
+-- => lockerLookup 105 lockers
+-- ==> Right "QOTSA"
+
+-- We could have used a Maybe a to represent the result but then we wouldn't know why
+-- we couldn't get the code. But now, we have information about the failure in our result type.
 
