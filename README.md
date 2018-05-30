@@ -53,5 +53,5 @@
    - [type parameters](/08_making-our-own-types-and-typeclasses/type-parameters.hs)
    - [derived instances](/08_making-our-own-types-and-typeclasses/derived-instances.hs)
    - [type synonyms](/08_making-our-own-types-and-typeclasses/type-synonyms.hs)
-   - [recursive data structures](/08_making-our-own-types-and-typeclasses/recursive-data-structures.hs)
+   - (wip) [recursive data structures](/08_making-our-own-types-and-typeclasses/recursive-data-structures.hs)
    - ...
