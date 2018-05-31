@@ -16,8 +16,9 @@ data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)
 
 -- Cons doesnt have any special meaning, its only short name for Constructor
 -- So it is just an arbitrary name which is also historic.
+-- I guess people used it for ':' in lists. Its not important.
 
--- Look answers in https://stackoverflow.com/a/41559202/1294887.
+-- Look answers in https://stackoverflow.com/a/41559202/1294887
 
 emptyList = Empty
 
@@ -35,4 +36,15 @@ anotherList =  3 `Cons` (4 `Cons` (5 `Cons` Empty))
 -- ==> Cons 3 (Cons 4 (Cons 5 Empty))
 
 -- 4 `Cons` (5 `Cons` Empty) is like 4:(5:[]).
+
+-- So get this correct;
+-- "Cons" is a value constructor!
+-- And it takes two things;
+-- 1) a value in type "a"
+-- 2) a value in type "List a"
+--   So...
+--   What "List a" can be?
+--   It can be "Empty" or "Cons"
+--   So if it is a "Empty", then ok. End of line.
+--   But if it is a "Cons" THIS IS WHERE RECURSION BEGINS!
 
