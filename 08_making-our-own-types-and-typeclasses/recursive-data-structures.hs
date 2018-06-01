@@ -48,3 +48,32 @@ anotherList =  3 `Cons` (4 `Cons` (5 `Cons` Empty))
 --   So if it is a "Empty", then ok. End of line.
 --   But if it is a "Cons" THIS IS WHERE RECURSION BEGINS!
 
+-- We can define functions to be automatically infix by making them
+-- comprised of only special characters. We can also do the same with
+-- constructors, since they're just functions that return a data type.
+
+infixr 5 :-:
+data List' a = Empty' | a :-: (List' a) deriving (Show, Read, Eq, Ord)
+
+-- so :-: just another historic symbol for "Constructor" and here
+-- we are using it to replace previous "Cons". But since it created with
+-- only special characters we can use it infix by default.
+-- and infixr give its precedence. as 5.
+
+-- Notice a new syntactic construct, the fixity declarations.
+-- When we define functions as operators, we can use that to give them
+-- a fixity (but we don't have to).
+
+-- A fixity states how tightly the operator binds and whether it's
+-- left-associative or right-associative.
+
+-- Operator that has a greater fixity bind tighter.
+-- This means its gonna be first applied.
+-- Like multiply operator in this example: 5 + 3 * 2
+
+betterList = 3 :-: 4 :-: 5 :-: Empty'
+
+-- => betterList
+-- ==> 3 :-: (4 :-: (5 :-: Empty'))
+
+
