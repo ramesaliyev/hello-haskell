@@ -76,4 +76,12 @@ betterList = 3 :-: 4 :-: 5 :-: Empty'
 -- => betterList
 -- ==> 3 :-: (4 :-: (5 :-: Empty'))
 
+-- Let's make a function that adds two of our lists together.
+-- We stole this from original ++ definition (which works with normal lists)
 
+infixr 5  .++  
+(.++) :: List a -> List a -> List a   
+Empty .++ ys = ys  
+(x :-: xs) .++ ys = x :-: (xs .++ ys)
+
+IM NOT SURE HOW THIS WORKS YET...
