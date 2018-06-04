@@ -79,9 +79,21 @@ betterList = 3 :-: 4 :-: 5 :-: Empty'
 -- Let's make a function that adds two of our lists together.
 -- We stole this from original ++ definition (which works with normal lists)
 
-infixr 5  .++  
-(.++) :: List a -> List a -> List a   
-Empty .++ ys = ys  
+infixr 5  .++
+(.++) :: List' a -> List' a -> List' a
+Empty' .++ ys = ys
 (x :-: xs) .++ ys = x :-: (xs .++ ys)
 
-IM NOT SURE HOW THIS WORKS YET...
+-- That works because pattern matching is actually about matching constructors.
+-- We can match on :-: because it is a constructor for our own list type and we
+-- can also match on : because it is a constructor for the built-in list type.
+-- Same goes for [].
+
+listA = 3 :-: 4 :-: 5 :-: Empty'
+listB = 6 :-: 7 :-: Empty'
+
+listAConcatB = listA .++ listB
+
+-- => listAConcatB
+-- ==> 3 :-: (4 :-: (5 :-: (6 :-: (7 :-: Empty'))))
+

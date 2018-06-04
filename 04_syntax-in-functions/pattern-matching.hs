@@ -97,3 +97,7 @@ capital "" = "Empty string, whoops!"
 capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
 
 -- You can't use ++ in pattern matches.
+
+-- Pattern matching is actually about matching constructors.
+-- We can match on : because it is a constructor for the built-in list type.
+-- Same goes for [], or Left or Empty or Nothing. They all are value constructors.
